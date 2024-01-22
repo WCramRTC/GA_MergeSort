@@ -5,7 +5,62 @@ In this guided assignment, you will delve into one of the most efficient sorting
 
 ---
 
+## How Does A Merge Sort Work?
+
+Merge Sort is a popular sorting algorithm that uses the Divide and Conquer approach to sort a list of elements. It breaks down the sorting problem into smaller subproblems, solves them, and then combines the results to get the sorted list. Here's a pseudocode representation of the Merge Sort algorithm, along with an explanation of its purpose and the concept of Divide and Conquer:
+
+### ***Psuedocode Explination:***
+https://www.youtube.com/watch?v=aJVMJrgOPYc
+
+**Merge Sort Pseudocode:**
+```python
+function mergeSort(arr)
+    if length(arr) <= 1:
+        return arr
+    
+    middle = length(arr) // 2
+    left_half = arr[:middle]
+    right_half = arr[middle:]
+    
+    left_half = mergeSort(left_half)
+    right_half = mergeSort(right_half)
+    
+    return merge(left_half, right_half)
+
+function merge(left, right)
+    result = []
+    left_index, right_index = 0, 0
+    
+    while left_index < length(left) and right_index < length(right):
+        if left[left_index] < right[right_index]:
+            result.append(left[left_index])
+            left_index++
+        else:
+            result.append(right[right_index])
+            right_index++
+    
+    result.extend(left[left_index:])
+    result.extend(right[right_index:])
+    return result
+```
+
+**Purpose of Merge Sort:**
+The primary purpose of Merge Sort is to sort a list of elements in ascending (or descending) order. It does this efficiently by recursively dividing the input list into smaller halves, sorting those halves, and then merging them back together in a sorted manner. Merge Sort is known for its stable sorting property, meaning that it maintains the relative order of equal elements.
+
+**Divide and Conquer:**
+Merge Sort is a classic example of the Divide and Conquer algorithmic paradigm. Divide and Conquer involves breaking down a problem into smaller, more manageable subproblems, solving each subproblem independently, and then combining the results of the subproblems to obtain the final solution. In the case of Merge Sort:
+
+1. **Divide**: The original list is divided into two equal (or nearly equal) halves.
+2. **Conquer**: Each of these halves is sorted using the Merge Sort algorithm recursively. This is the conquer phase.
+3. **Combine**: Finally, the sorted halves are merged back together in a way that maintains their sorted order, resulting in a fully sorted list.
+
+The Divide and Conquer approach is advantageous because it often leads to more efficient algorithms. By breaking down a problem into smaller pieces, you can solve them independently, potentially reducing the time complexity of the overall algorithm. Merge Sort's time complexity is O(n log n), which makes it efficient for sorting large lists of elements.
+
+---
+
 ## Detailed Requirements
+
+### COMMENTING YOUR CODE IS REQUIRED, EXPLAIN WHAT IS HAPPENING
 
 ### Project Setup (10 Points)
 - Create a new console application in your IDE (e.g., Visual Studio).
@@ -44,6 +99,12 @@ In this guided assignment, you will delve into one of the most efficient sorting
 - Each section is crucial for understanding and implementing Merge Sort.
 
 ---
+
+
+
+### ***Code Walkthrough:***
+https://youtu.be/CKRkDt2Yud8?si=qow16xvSMDEop9h
+
 
 ### Starting Code
 ```csharp
@@ -194,6 +255,14 @@ public static void Merge(int[] array, int left, int middle, int right)
 
 - In your `Main` method, include comments that discuss the time complexity of Merge Sort.
 - Compare its efficiency with simpler algorithms and explain its advantages in the comments.
+
+---
+
+## Final Code
+
+- Build your entire merge sort by hand, don't just fork the repo.
+- Test your code with your own array of data.
+- Comment ALL of your code.
 
 ---
 
